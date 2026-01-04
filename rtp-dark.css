@@ -20,7 +20,7 @@
 }
 
 body {
-    background: url("https://i.ibb.co/vvgC7R91/1-NEW-MEMBER.jpg") var(--bg-color);
+    background: url("https://i.ibb.co/2YW9pDSS/poster-playroom-that-says-creative.jpg") var(--bg-color);
     color: var(--text-first);
     background-size: cover !important;
     background-attachment: fixed !important;
@@ -476,6 +476,7 @@ body {
   will-change: transform, opacity;
   filter: drop-shadow(0 0 20px rgba(220,150,255,0.9));
 }
+
 
 
 
