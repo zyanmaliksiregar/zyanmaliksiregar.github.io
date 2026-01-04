@@ -20,7 +20,7 @@
 }
 
 body {
-    background: url("https://i.ibb.co/VpxZyPdP/13117223-5164297.jpg") var(--bg-color);
+    background: url("https://i.ibb.co/N6mgnJY6/213.jpg") var(--bg-color);
     color: var(--text-first);
     background-size: cover !important;
     background-attachment: fixed !important;
@@ -470,6 +470,7 @@ setInterval(() => {
   }
 }, 600);
 </script>
+
 
 
 
