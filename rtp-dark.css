@@ -378,6 +378,98 @@ body {
     }
 }
 
+<title>Petir Zig Zag Violet</title>
+
+<style>
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at top, #4a0070, #12001c 70%);
+  overflow: hidden;
+}
+
+/* canvas HARUS DI ATAS */
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 5;
+}
+</style>
+</head>
+
+<body>
+
+<canvas id="lightning"></canvas>
+
+<script>
+const canvas = document.getElementById("lightning");
+const ctx = canvas.getContext("2d");
+
+function resize() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+resize();
+window.addEventListener("resize", resize);
+
+function drawBolt(x, y, length, angle, branch = false) {
+  ctx.beginPath();
+  ctx.moveTo(x, y);
+
+  let segments = 25;
+  let step = length / segments;
+
+  for (let i = 0; i < segments; i++) {
+    x += (Math.random() - 0.5) * 40;
+    y += step;
+    ctx.lineTo(x, y);
+
+    // CABANG
+    if (!branch && Math.random() > 0.85) {
+      drawBolt(x, y, length / 2, angle, true);
+    }
+  }
+
+  ctx.strokeStyle = "rgba(255,255,255,1)";
+  ctx.lineWidth = branch ? 1 : 3;
+  ctx.shadowColor = "#c77dff";
+  ctx.shadowBlur = 40;
+  ctx.stroke();
+}
+
+function strike() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  // FLASH LAYAR
+  ctx.fillStyle = "rgba(200,120,255,0.15)";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  drawBolt(
+    Math.random() * canvas.width,
+    0,
+    canvas.height,
+    Math.PI / 2
+  );
+
+  // hapus flash
+  setTimeout(() => {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+  }, 120);
+}
+
+// INTERVAL
+setInterval(() => {
+  if (Math.random() > 0.55) {
+    strike();
+  }
+}, 600);
+</script>
 
 
 
