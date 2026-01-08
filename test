@@ -1,0 +1,146 @@
+/* ===============================
+   THEME VARIABEL
+================================ */
+:root {
+  --violet-main: #7a3cff;
+  --violet-glow: rgba(122, 60, 255, 0.35);
+  --violet-soft: #b58cff;
+  --bg-card: #ffffff;
+  --text-dark: #222;
+}
+
+/* ===============================
+   LISTING CARD
+================================ */
+.v2-listing-card {
+  position: relative;
+  background: var(--bg-card);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.25s ease;
+}
+
+.v2-listing-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px var(--violet-glow);
+}
+
+/* ===============================
+   LINK RESET
+================================ */
+.v2-listing-card a {
+  color: var(--text-dark);
+  text-decoration: none;
+}
+
+/* ===============================
+   IMAGE
+================================ */
+.v2-listing-card img {
+  width: 100%;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.v2-listing-card:hover img {
+  transform: scale(1.05);
+}
+
+/* ===============================
+   INFO AREA
+================================ */
+.v2-listing-card__info {
+  padding: 10px 12px;
+  font-size: 13px;
+}
+
+/* ===============================
+   ACTION BUTTONS
+================================ */
+.v2-listing-card__actions {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  gap: 6px;
+}
+
+/* ===============================
+   FAVORITE BUTTON
+================================ */
+.v2-listing-card__favorite {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #fff;
+  border: none;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: all 0.2s ease;
+}
+
+.v2-listing-card__favorite:hover {
+  background: var(--violet-main);
+}
+
+.v2-listing-card__favorite svg {
+  width: 16px;
+  height: 16px;
+  fill: var(--violet-main);
+  transition: all 0.2s ease;
+}
+
+.v2-listing-card__favorite:hover svg {
+  fill: #fff;
+  transform: scale(1.2);
+}
+
+/* ACTIVE FAVORITE */
+.v2-listing-card__favorite.is-active {
+  background: var(--violet-main);
+}
+
+.v2-listing-card__favorite.is-active svg {
+  fill: #fff;
+  animation: favPop 0.4s ease;
+}
+
+@keyframes favPop {
+  0% { transform: scale(0.6) rotate(0); }
+  60% { transform: scale(1.3) rotate(15deg); }
+  100% { transform: scale(1) rotate(0); }
+}
+
+/* ===============================
+   CART BUTTON
+================================ */
+.v2-listing-card__cart {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--violet-soft);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.v2-listing-card__cart:hover {
+  background: var(--violet-main);
+  transform: scale(1.1);
+}
+
+/* ===============================
+   BADGE
+================================ */
+.v2-listing-card__badge {
+  position: absolute;
+  left: 8px;
+  top: 8px;
+  background: var(--violet-main);
+  color: #fff;
+  font-size: 11px;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
